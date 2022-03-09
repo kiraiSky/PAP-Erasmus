@@ -17,8 +17,8 @@ echo  ('
           <li><a href="https://instagram.com" class="si-instagram"><span class="ts-icon"><i class="icon-instagram"></i></span><span class="ts-text">Instagram</span></a></li>
           <li><a href="https://twitter.com" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
           <li><a href="https://youtube.com" class="si-youtube"><span class="ts-icon"><i class="icon-youtube"></i></span><span class="ts-text">Youtube</span></a></li>
-          <!--<li><a href="phone.html" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">Phone</span></a></li>-->
-          <li><a href="mail.html" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">Mail</span></a></li>
+          <!--<li><a href="phone.php" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">Phone</span></a></li>-->
+          <li><a href="mail.php" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">Mail</span></a></li>
           <li><a href="https://twinspace.etwinning.net/123487/home" class="si-facebook"><span class="ts-icon"><i class="icon-school"></i></span><span class="ts-text">eTwinning</span></a></li>
         </ul><!-- #top-social end -->
 
@@ -53,13 +53,13 @@ echo  ('
           
           <ul class="menu-container">
             <li class="menu-item">
-              <a class="menu-link" href="index.html"><div>Home</div><span>Latest News</span><span>Next Events</span></a>
+              <a class="menu-link" href="index.php"><div>Home</div><span>Latest News</span><span>Next Events</span></a>
               <ul class="sub-menu-container">
                 <li class="menu-item">
-                  <a class="menu-link" href="latestnews.html"><div>Latest News</div></a>
+                  <a class="menu-link" href="latestnews.php"><div>Latest News</div></a>
                 </li>
                 <li class="menu-item">
-                  <a class="menu-link" href="nextevents.html"><div>Next Events</div></a>
+                  <a class="menu-link" href="nextevents.php"><div>Next Events</div></a>
                 </li>
               </ul>
         
@@ -122,7 +122,7 @@ echo  ('
                       <ul class="menu-container"></ul>
 
                       <li class="menu-item">
-                        <a class="menu-link" href="LoginForm.html"><div>Login</div><span>Login or Create an Account</span></a>
+                        <a class="menu-link" href="LoginForm.php"><div>Login</div><span>Login or Create an Account</span></a>
                         <ul class="menu-container">
         </nav>
         <!-- #primary-menu end -->
