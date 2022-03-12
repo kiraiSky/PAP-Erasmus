@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-PT">
 <head>
@@ -108,25 +112,33 @@ include('menu.php');
 							<div class="tab-content" id="tab-login">
 								<div class="card mb-0">
 									<div class="card-body" style="padding: 40px;">
-										<form id="login-form" name="login-form" class="mb-0" action="acessobd_pdo.php" method="post">
+										<form id="login-form" name="login-form" class="mb-0" action="login-php/login.php" method="post">
 
 											<h3>Login to your Account</h3>
 
 											<div class="row">
 												<div class="col-12 form-group">
 													<label for="login-form-username">Username:</label>
-													<input type="text" id="login-form-username" name="login-form-username" value="" class="form-control" />
+													<input type="text" id="login-form-username" name="login-form-username" class="form-control" />
 												</div>
 
 												<div class="col-12 form-group">
 													<label for="login-form-password">Password:</label>
-													<input type="password" id="login-form-password" name="login-form-password" value="" class="form-control" />
+													<input type="password" id="login-form-password" name="login-form-password" class="form-control" />
 												</div>
 
 												<div class="col-12 form-group">
 													<button class="button button-3d button-black m-0" id="login-form-submit" name="login-form-submit" value="login">Login</button>
 													<a href="#" class="float-end">Forgot Password?</a>
 												</div>
+												<p class="text-center text-danger">
+												<?php 
+													//Recuperando o valor da variável global, os erro de login.
+													if(isset($_SESSION['loginErro'])){
+																		echo $_SESSION['loginErro'];
+																		unset($_SESSION['loginErro']);
+            						}?>
+												</p>
 											</div>
 
 										</form>
@@ -139,31 +151,34 @@ include('menu.php');
 									<div class="card-body" style="padding: 40px;">
 										<h3>Register for an Account</h3>
 
-										<form id="register-form" name="register-form" class="row mb-0" action="#" method="post">
+										<form id="register-form" name="register-form" class="row mb-0" action="login-php/register.php" method="post">
 
 											<div class="col-12 form-group">
 												<label for="register-form-name">Name:</label>
 												<input type="text" id="register-form-name" name="register-form-name" value="" class="form-control" />
+
+												<span id="msgAlerta"></span>
 											</div>
 
 											<div class="col-12 form-group">
 												<label for="register-form-email">Email Address:</label>
-												<input type="text" id="register-form-email" name="register-form-email" value="" class="form-control" />
+												<input type="email" id="register-form-email" name="register-form-email" value="" class="form-control" />
 											</div>
 
 											<div class="col-12 form-group">
 												<label for="register-form-username">Choose a Username:</label>
 												<input type="text" id="register-form-username" name="register-form-username" value="" class="form-control" />
+
+												<span id="msgAlertaUser"></span>
 											</div>
 
-											<div class="col-12 form-group">
-												<label for="register-form-phone">Phone:</label>
-												<input type="text" id="register-form-phone" name="register-form-phone" value="" class="form-control" />
-											</div>
 
 											<div class="col-12 form-group">
 												<label for="register-form-password">Choose Password:</label>
 												<input type="password" id="register-form-password" name="register-form-password" value="" class="form-control" />
+
+												<span id="msgAlertaPassword"></span>
+
 											</div>
 
 											<div class="col-12 form-group">
@@ -172,10 +187,11 @@ include('menu.php');
 											</div>
 
 											<div class="col-12 form-group">
-												<button class="button button-3d button-black m-0" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+												<button class="button button-3d button-black m-0" id="register-form-submit" name="register-form-submit" value="register" type="submit">Register Now</button>
 											</div>
 
 										</form>
+										<script src="javascript/validarForm.js"></script>
 									</div>
 								</div>
 							</div>
