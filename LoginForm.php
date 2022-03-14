@@ -168,7 +168,14 @@ include('menu.php');
 											<div class="col-12 form-group">
 												<label for="register-form-username">Choose a Username:</label>
 												<input type="text" id="register-form-username" name="register-form-username" value="" class="form-control" />
-
+												<span class="text-center text-danger">
+												<?php 
+													//Recuperando o valor da variável global, os erro de login.
+													if(isset($_SESSION['registroErro'])){
+																		echo $_SESSION['registroErro'];
+																		unset($_SESSION['registroErro']);
+            						}?>
+												</span>
 												<span id="msgAlertaUser"></span>
 											</div>
 

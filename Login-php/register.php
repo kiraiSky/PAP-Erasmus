@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once('../connection.php');
  
 
@@ -15,11 +16,22 @@
   $lastAccess = date('Y-m-d H:i:s');
   $password = mysqli_real_escape_string($connection, $password);
 
-  $query = "INSERT into users values ('$username', '$name', null, '$email', '$password', '$lastAccess', null, null, null)";
+//Procura na DB se existe um utilizador correspondente ao que foi inserido no registro
+  $query = "SELECT * FROM users WHERE username='$username';";
+  $resultado = mysqli_query($connection, $query);
+  $linha = mysqli_fetch_assoc($resultado);
+  $total = mysqli_num_rows($resultado);
 
-  mysqli_query($connection, $query);
+  if(empty($total)){
+    $query = "INSERT into users values ('$username', '$name', null, '$email', '$password', '$lastAccess', null, null, null)";
+    mysqli_query($connection, $query);
+    header('Location: ../index.php');
+  }else{
+    $_SESSION['registroErro'] = "Este usuário já existe.";
+    header('Location: ../LoginForm.php');
+  }
 
-  header('Location: ../index.php');
+  
 
   }
 
