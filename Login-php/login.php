@@ -16,7 +16,6 @@
   }
 
   function login($connection, $username, $password){
-
     $lastAccess = date('Y-m-d H:i:s');
 
     $query = "SELECT * FROM users WHERE username='$username' and userpassword='$password' LIMIT 1";
@@ -28,7 +27,13 @@
       $_SESSION['loginErro'] = "Usuário ou senha inválido";
       header("Location: ../loginForm.php");
     }elseif($total > 0){
-      $_SESSION['username'] = $username;
+      $_SESSION['user'] = $linha["name"];
+      $_SESSION['username'] = $linha["username"];
+      $_SESSION['email'] = $linha["email"];
+      $_SESSION['userGroup'] = $linha["idUserGroup"];
+      $_SESSION['blocked?'] = $linha["blocked"];
+      $query = "UPDATE users SET lastAccess = '$lastAccess' WHERE username='$username'";
+      mysqli_query($connection, $query);
       header("Location: ../index.php");
     }else{
       $_SESSION['loginErro'] = "Usuário ou senha inválido";
