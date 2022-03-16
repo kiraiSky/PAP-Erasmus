@@ -1,7 +1,9 @@
 <?php
 session_start();
-?>
+include_once('functions/verificarTipoUtilizador.php');
 
+sendToIndex();
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-PT">
 <head>
@@ -120,15 +122,17 @@ include('menu.php');
 												<div class="col-12 form-group">
 													<label for="login-form-username">Username:</label>
 													<input type="text" id="login-form-username" name="login-form-username" class="form-control" />
+													<span id="msgAlertaUser"></span>
 												</div>
 
 												<div class="col-12 form-group">
 													<label for="login-form-password">Password:</label>
 													<input type="password" id="login-form-password" name="login-form-password" class="form-control" />
+													<span id="msgAlertaPassword"></span>
 												</div>
 
 												<div class="col-12 form-group">
-													<button class="button button-3d button-black m-0" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+													<button class="button button-3d button-black m-0" id="login-form-submit" name="login-form-submit" value="login" type="">Login</button>
 													<a href="#" class="float-end">Forgot Password?</a>
 												</div>
 												<p class="text-center text-danger">

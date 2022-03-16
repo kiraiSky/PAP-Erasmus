@@ -1,4 +1,5 @@
 <?php
+include_once('functions/verificarTipoUtilizador.php');
 
 echo  ('
 <div id="top-bar" class="transparent-topbar">
@@ -120,10 +121,18 @@ echo  ('
                     <li class="menu-item">
                       <a class="menu-link" href="tracksChallenges.html"><div>Tracks and challenges</div><span>Pathways For the Project</span></a>
                       <ul class="menu-container"></ul>
-
-                      <li class="menu-item">
-                        <a class="menu-link" href="LoginForm.php"><div>Login</div><span>Login or Create an Account</span></a>
-                        <ul class="menu-container">
+                      ');
+                      if(isLogged()){
+                        echo ('<li class="menu-item">
+                        <a class="menu-link" href="LoginForm.php"><div>Log out</div><span>Login or Create an Account</span></a>
+                        <ul class="menu-container">');
+                      }else{
+                        echo ('<li class="menu-item">
+                        <a class="menu-link" href="LoginForm.php"><div>Login</div><span>Log Out</span></a>
+                        <ul class="menu-container">');
+                      }
+                      
+                      echo('
         </nav>
         <!-- #primary-menu end -->
         
